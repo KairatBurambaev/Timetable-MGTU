@@ -43,18 +43,18 @@ def nice_print(data):
         messege += elem['day'] + '\n'
         for i in elem['events']:
             if elem['events'].count(i) > 0:
-                messege += str(i['event_index']) + ' ' + i['course'] + ' ' + i['type'] + ' каб. ' + i['location'] + '\n'
+                messege += '--' + str(i['event_index']) + ' ' + i['course'] + ' ' + i['type'] + ' каб. ' + i['location'] + '\n'
             else: 
-                messege += 'занятий нет' + '\n'
+                messege += '--' + 'занятий нет' + '\n'
 
     messege1 = 'Неделя: ' + data['schedule'][1]['week'] + '\n'
     for elem in data['schedule'][1]['days']:
         messege1 += elem['day'] + '\n'
         for i in elem['events']:
             if elem['events'].count(i) > 0:
-                messege1 += str(i['event_index']) + ' ' + i['course'] + ' ' + i['type'] + ' каб. ' + i['location'] + '\n'
+                messege1 += '--' + str(i['event_index']) + ' ' + i['course'] + ' ' + i['type'] + ' каб. ' + i['location'] + '\n'
             else:
-                messege1 += 'занятий нет' + '\n'
+                messege1 += '--' + 'занятий нет' + '\n'
 
     print(messege)
     print(messege1)
