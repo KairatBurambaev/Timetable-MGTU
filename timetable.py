@@ -20,9 +20,9 @@ def search_by_name(name):
     return data 
 
 def nice_print_schedule(data):
-    message = '-'*31 + '\n'
+    message = '-'*53 + '\n'
     message += get_datetime() + '\n'
-    message += '-'*31 + '\n'
+    message += '-'*53 + '\n'
     message += '\n' + data['url'] + '\n' + 'Неделя: ' + data['schedule'][0]['week'] + '\n'
     for elem in data['schedule'][0]['days']:
         message += '\n' + elem['day'] + '\n'
