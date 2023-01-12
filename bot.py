@@ -1,12 +1,12 @@
 from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
-from commands import hi_command
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler
+from commands import timetable_request
+from telegram.ext.filters import TEXT
 
-async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(f'Hello {update.effective_user.first_name}')
+with open('.env','r') as file:
+    token = file.readline()
+app = ApplicationBuilder().token(token).build()
 
-app = ApplicationBuilder().token("5987250816:AAF29pfJMQ_9wp78JlLYM9813V4uio8NCis").build()
-
-app.add_handler(CommandHandler("Hi", hi_command))
+app.add_handler(MessageHandler(TEXT, timetable_request))
 
 app.run_polling()
