@@ -3,7 +3,9 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, Messa
 from commands import timetable_request
 from telegram.ext.filters import TEXT
 
-app = ApplicationBuilder().token("5987250816:AAF29pfJMQ_9wp78JlLYM9813V4uio8NCis").build()
+with open('.env','r') as file:
+    token = file.readline()
+app = ApplicationBuilder().token(token).build()
 
 app.add_handler(MessageHandler(TEXT, timetable_request))
 
