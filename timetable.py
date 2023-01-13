@@ -20,15 +20,13 @@ def search_by_name(name):
     return data 
 
 def nice_print_schedule(data):
-    message = '-'*53 + '\n'
-    message += get_datetime() + '\n'
-    message += '-'*53 + '\n'
+    message = get_datetime() + '\n'
     message += '\n' + data['url'] + '\n' + 'Неделя: ' + data['schedule'][0]['week'] + '\n'
     for elem in data['schedule'][0]['days']:
         message += '\n' + elem['day'] + '\n'
         for i in elem['events']:
             if elem['events'].count(i) > 0:
-                message += '-- ' + str(i['event_index']) + ' ' + i['course'] + ' ' + i['type'] + ' каб. ' + i['location'] + '\n'
+                message += '* ' + str(i['event_index']) + ' ' + i['course'] + ' ' + i['type'] + ' каб. ' + i['location'] + '\n'
             else: 
                 message += i + 'занятий нет' + '\n'
 
@@ -37,7 +35,7 @@ def nice_print_schedule(data):
         message += '\n' + elem['day'] + '\n'
         for i in elem['events']:
             if elem['events'].count(i) > 0:
-                message += '-- ' + str(i['event_index']) + ' ' + i['course'] + ' ' + i['type'] + ' каб. ' + i['location'] + '\n'
+                message += '* ' + str(i['event_index']) + ' ' + i['course'] + ' ' + i['type'] + ' каб. ' + i['location'] + '\n'
             else:
                 message += i + 'занятий нет' + '\n'
     return message
